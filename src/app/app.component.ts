@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   autoCompleteOptionsList = [
-    ['One', 'Two', 'Three', 'Four'],
-    ['Apple', 'Banana', 'Chikkoo', 'Dates'],
-    ['Bengaluru', 'Delhi', 'Chennai'],
+    { startsWith: true, options: ['One', 'Two', 'Three', 'Four'] },
+    {
+      startsWith: true,
+      options: ['Angular', 'React.js', 'Vue.js', 'Ember.js'],
+    },
+    { startsWith: false, options: ['Apple', 'Banana', 'Chikkoo', 'Dates'] },
+    { startsWith: false, options: ['Bengaluru', 'Delhi', 'Chennai'] },
   ];
 }
