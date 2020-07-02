@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body,
+html {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  background-color: #fafafa;
+}
+.expansion-panel {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  margin: 1rem 0;
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  .expansion-panel-header {
+    display: flex;
+    border-radius: inherit;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    &:focus {
+      outline: none;
+    }
+    &.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      &:hover {
+        background-color: white;
+      }
+    }
+
+    .expansion-panel-title {
+      width: 40%;
+      font-weight: bold;
+    }
+
+    .expansion-panel-summary {
+      width: 60%;
+      color: rgba(0, 0, 0, 0.54);
+    }
+    .expansion-panel-direction-indicator {
+      &::after {
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        vertical-align: middle;
+        transition: transform 0.3s ease-in-out 0s;
+      }
+      &.open::after {
+        transform: rotate(225deg);
+      }
+    }
+  }
+
+  .expansion-panel-body {
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    border-radius: inherit;
+    &.show {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .expansion-panel-content {
+      display: block;
+      padding: 0 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<div class="autoCompleteSearchBoxContainer">
+  <input
+    #autoCompleteSearchText
+    class="autoCompleteSearchBox"
+    name="autoCompleteSearchBox"
+    type="text"
+    [value]="autoCompleteSearchBoxValue"
+    (input)="filterAutoCompleteOptions($event, autoCompleteSearchText.value)"
+    (click)="showDropdown = true"
+    (focus)="showDropdown = true"
+  />
+  <ul
+    class="autoCompleteOptions"
+    [ngClass]="{ show: showDropdown }"
+    tabindex="-1"
+  >
+    <li
+      *ngFor="let option of filteredOptions"
+      (click)="autoCompleteSearchBoxValue = option"
+    >
+      {{ option }}
+    </li>
+  </ul>
+</div>

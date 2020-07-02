@@ -1,0 +1,23 @@
+<div class="expansion-panel">
+  <div
+    class="expansion-panel-header"
+    [ngClass]="{ active: showPanelBody }"
+    (click)="showExpansionPanelBody(expansionPanelBody)"
+    (keydown.enter)="showExpansionPanelBody(expansionPanelBody)"
+    tabindex="0"
+  >
+    <ng-content select="expansion-panel-title"></ng-content>
+    <ng-content select="expansion-panel-summary"> </ng-content>
+    <span
+      class="expansion-panel-direction-indicator"
+      [ngClass]="{ open: showPanelBody }"
+    ></span>
+  </div>
+  <div
+    #expansionPanelBody
+    class="expansion-panel-body"
+    [ngClass]="{ show: showPanelBody }"
+  >
+    <ng-content select="expansion-panel-content"> </ng-content>
+  </div>
+</div>
